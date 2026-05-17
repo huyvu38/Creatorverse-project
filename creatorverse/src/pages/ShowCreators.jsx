@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../client'
 import Card from '../components/Card'
+import { Link } from 'react-router-dom'
 
 function ShowCreators() {
 
@@ -41,6 +42,12 @@ function ShowCreators() {
                     />
                 ))
             )}
+
+            <Link to="/new">
+                <button className="bg-black text-white px-4 py-2 rounded-lg mb-6 hover:bg-gray-800 transition">
+                    + Add Creator
+                </button>
+            </Link>
         </div>
     )
 }

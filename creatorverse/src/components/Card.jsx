@@ -26,6 +26,13 @@ function Card({ creator }) {
                 Visit Channel
             </a>
 
+            {/* EDIT BUTTON */}
+            <Link to={`/edit/${creator.id}`}>
+                <button className="mt-3 bg-gray-800 text-white px-3 py-1 rounded hover:bg-gray-600 transition">
+                    Edit
+                </button>
+            </Link>
+
         </div>
     )
 }

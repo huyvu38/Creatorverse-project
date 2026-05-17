@@ -1,20 +1,19 @@
 import { Routes, Route } from 'react-router-dom'
 
-function Home() {
-  return <h1>Home Page</h1>
-}
-
-function CreateCreator() {
-  return <h1>Create Creator Page</h1>
-}
+import ShowCreators from './pages/ShowCreators'
+import ViewCreator from './pages/ViewCreator'
+import EditCreator from './pages/EditCreator'
+import AddCreator from './pages/AddCreator'
 
 function App() {
-  return (
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/new" element={<CreateCreator />} />
-      </Routes>
-  )
+    return (
+        <Routes>
+            <Route path="/" element={<ShowCreators />} />
+            <Route path="/new" element={<AddCreator />} />
+            <Route path="/edit/:id" element={<EditCreator />} />
+            <Route path="/creator/:id" element={<ViewCreator />} />
+        </Routes>
+    )
 }
 
 export default App

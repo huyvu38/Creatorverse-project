@@ -1,18 +1,35 @@
-import { Routes, Route } from 'react-router-dom'
+import { useRoutes } from 'react-router-dom'
 
 import ShowCreators from './pages/ShowCreators'
 import ViewCreator from './pages/ViewCreator'
 import EditCreator from './pages/EditCreator'
 import AddCreator from './pages/AddCreator'
 
-function App() {
+const App = () => {
+
+    let element = useRoutes([
+        {
+            path: '/',
+            element: <ShowCreators />
+        },
+        {
+            path: '/new',
+            element: <AddCreator />
+        },
+        {
+            path: '/edit/:id',
+            element: <EditCreator />
+        },
+        {
+            path: '/view/:id',
+            element: <ViewCreator />
+        }
+    ])
+
     return (
-        <Routes>
-            <Route path="/" element={<ShowCreators />} />
-            <Route path="/new" element={<AddCreator />} />
-            <Route path="/edit/:id" element={<EditCreator />} />
-            <Route path="/creator/:id" element={<ViewCreator />} />
-        </Routes>
+        <div className="App">
+            {element}
+        </div>
     )
 }
 

@@ -63,6 +63,26 @@ function EditCreator() {
         navigate('/')
     }
 
+    async function handleDelete() {
+        const confirmDelete = window.confirm(
+            "Are you sure you want to delete this creator?"
+        )
+
+        if (!confirmDelete) return
+
+        const { error } = await supabase
+            .from('creators')
+            .delete()
+            .eq('id', Number(id))
+
+        if (error) {
+            console.log(error)
+            return
+        }
+
+        navigate('/')
+    }
+
     return (
         <div className="max-w-xl mx-auto mt-10 p-6">
 
@@ -105,6 +125,13 @@ function EditCreator() {
                     className="bg-black text-white px-4 py-2 rounded"
                 >
                     Update Creator
+                </button>
+                <button
+                    type="button"
+                    onClick={handleDelete}
+                    className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+                >
+                    Delete Creator
                 </button>
 
             </form>
